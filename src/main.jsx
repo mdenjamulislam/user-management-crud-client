@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AuthProvicer from "./assets/providers/AuthProvider/AuthProvicer.jsx";
 import Root from "./assets/layout/Root/Root.jsx";
 import Dashboard from "./assets/pages/Dashboard.jsx";
+import AddUser from "./assets/components/AddUser.jsx";
 
 const router = createBrowserRouter([
     {
@@ -15,7 +16,12 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Dashboard />,
+                loader: () => fetch("http://localhost:5000/users"),
             },
+            {
+                path: "/adduser",
+                element: <AddUser/>
+            }
         ],
     },
 ]);
