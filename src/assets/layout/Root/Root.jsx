@@ -8,6 +8,7 @@ const Root = () => {
         <>
             <NavBar />
             {/* <SidebarNav/> */}
+            <Outlet/>
         </>
     );
 };
