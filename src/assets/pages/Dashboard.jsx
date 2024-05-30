@@ -66,7 +66,7 @@ const Dashboard = () => {
                 {/* End of the card top (filter and sort and add new user) */}
 
                 {/* User card */}
-                <AllUsers users={users} />
+                <AllUsers users={users} setUsers={setUsers} />
             </div>
         </section>
     );

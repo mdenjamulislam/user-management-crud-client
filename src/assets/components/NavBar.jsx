@@ -3,13 +3,20 @@ import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 
 const NavBar = () => {
-    const navLinks = [
+
+    
+
+
+    const navLinks = (
         <>
             <li>
-                <NavLink to="/" exact activeClassName="active">Dashboard</NavLink>
+                <NavLink to="/" className="active">Dashboard</NavLink>
             </li>
         </>
-    ]
+    );
+
+
+
     return (
         <nav className="container navbar bg-base-100">
             <div className="navbar-start">

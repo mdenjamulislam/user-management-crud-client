@@ -2,9 +2,45 @@ import React from "react";
 import { FaRegEye } from "react-icons/fa6";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MdOutlineEdit } from "react-icons/md";
+import Swal from "sweetalert2";
 
-const UserCard = ({ user }) => {
-    const { name, phoneNumber, email, address, photoUrl } = user;
+const UserCard = ({ user, users, setUsers }) => {
+    const { _id, name, phoneNumber, email, address, photoUrl } = user;
+
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                
+                fetch(`http://localhost:5000/users/${id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success",
+                            });
+                            const remainingUsers = users.filter((user) => user._id !== id);
+                            setUsers(remainingUsers);
+                        }
+                    });
+            }
+        });
+    };
     return (
         <div className="space-y-3.5 rounded-xl border p-4 md:p-5">
             <div>
@@ -24,38 +60,19 @@ const UserCard = ({ user }) => {
             </div>
             <div className="flex items-center justify-between">
                 <div className="flex items-center -space-x-3">
-                    <div className="avatar">
-                        <div className="w-8 rounded-full">
-                            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                        </div>
-                    </div>
-                    <div className="avatar">
-                        <div className="w-8 rounded-full">
-                            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                        </div>
-                    </div>
-                    <div className="avatar">
-                        <div className="w-8 rounded-full">
-                            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                        </div>
-                    </div>
-                    <div className="avatar">
-                        <div className="w-7 rounded-full">
-                            <span className=" flex h-full w-full items-center justify-center bg-blue-400 text-sm text-white">5+</span>
-                        </div>
-                    </div>
+                    
                 </div>
                 {/* End of the user gallery */}
                 {/* Action */}
                 <div className="flex items-center gap-2">
                     <button>
-                        <FaRegEye className="text-sm md:text-base text-gray-400 hover:text-white" />
+                        <FaRegEye className="text-sm text-gray-400 hover:text-white md:text-base" />
+                    </button>
+                    <button onClick={() => handleDelete(_id)}>
+                        <RiDeleteBin6Line className="text-sm text-gray-400 hover:text-white md:text-base" />
                     </button>
                     <button>
-                        <RiDeleteBin6Line className="text-sm md:text-base text-gray-400 hover:text-white"/>
-                    </button>
-                    <button>
-                        <MdOutlineEdit className="text-sm md:text-base text-gray-400 hover:text-white" />
+                        <MdOutlineEdit className="text-sm text-gray-400 hover:text-white md:text-base" />
                     </button>
                 </div>
             </div>
