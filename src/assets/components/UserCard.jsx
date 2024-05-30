@@ -3,6 +3,7 @@ import { FaRegEye } from "react-icons/fa6";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MdOutlineEdit } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const UserCard = ({ user, users, setUsers }) => {
     const { _id, name, phoneNumber, email, address, photoUrl } = user;
@@ -71,9 +72,9 @@ const UserCard = ({ user, users, setUsers }) => {
                     <button onClick={() => handleDelete(_id)}>
                         <RiDeleteBin6Line className="text-sm text-gray-400 hover:text-white md:text-base" />
                     </button>
-                    <button>
+                    <Link to={`/updateuser/${_id}`}>
                         <MdOutlineEdit className="text-sm text-gray-400 hover:text-white md:text-base" />
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

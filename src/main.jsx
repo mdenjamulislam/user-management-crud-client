@@ -7,6 +7,7 @@ import AuthProvicer from "./assets/providers/AuthProvider/AuthProvicer.jsx";
 import Root from "./assets/layout/Root/Root.jsx";
 import Dashboard from "./assets/pages/Dashboard.jsx";
 import AddUser from "./assets/components/AddUser.jsx";
+import UpdateUser from "./assets/components/UpdateUser.jsx";
 
 const router = createBrowserRouter([
     {
@@ -20,8 +21,13 @@ const router = createBrowserRouter([
             },
             {
                 path: "/adduser",
-                element: <AddUser/>
-            }
+                element: <AddUser />,
+            },
+            {
+                path: "/updateuser/:id",
+                element: <UpdateUser />,
+                loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`),
+            },
         ],
     },
 ]);
@@ -31,5 +37,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <AuthProvicer>
             <RouterProvider router={router}></RouterProvider>
         </AuthProvicer>
-    </React.StrictMode>
+    </React.StrictMode>,
 );
