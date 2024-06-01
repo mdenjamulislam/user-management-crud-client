@@ -1,5 +1,3 @@
-import { data } from "autoprefixer";
-import React from "react";
 import { useLoaderData } from "react-router-dom";
 
 const UpdateUser = () => {
@@ -17,6 +15,7 @@ const UpdateUser = () => {
         const photoUrl = form.photo_url.value;
 
         const user = { name, phoneNumber, email, address, photoUrl };
+
         
 
         fetch(`http://localhost:5000/users/${_id}`, {
@@ -29,6 +28,7 @@ const UpdateUser = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
+                window.location.href = "/";
             });
     };
     return (
@@ -84,7 +84,9 @@ const UpdateUser = () => {
                     </div>
 
                     <div className="col-span-full">
-                        <button type="submit" className="btn btn-primary w-full">Update User</button>
+                        <button type="submit" className="btn btn-primary w-full">
+                            Update User
+                        </button>
                     </div>
                 </form>
             </div>
