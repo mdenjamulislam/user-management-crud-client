@@ -8,6 +8,7 @@ import Root from "./assets/layout/Root/Root.jsx";
 import Dashboard from "./assets/pages/Dashboard.jsx";
 import AddUser from "./assets/components/AddUser.jsx";
 import UpdateUser from "./assets/components/UpdateUser.jsx";
+import UserDetails from "./assets/components/UserDetails.jsx";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Dashboard />,
                 loader: () => fetch("http://localhost:5000/users"),
+            },
+            {
+                path: "/users/:id",
+                element: <UserDetails />,
+                loader: ({params }) => fetch(`http://localhost:5000/users/${params.id}`),
             },
             {
                 path: "/adduser",

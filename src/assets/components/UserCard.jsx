@@ -66,9 +66,9 @@ const UserCard = ({ user, users, setUsers }) => {
                 {/* End of the user gallery */}
                 {/* Action */}
                 <div className="flex items-center gap-2">
-                    <button>
+                    <Link to={`/users/${_id}`}>
                         <FaRegEye className="text-sm text-gray-400 hover:text-white md:text-base" />
-                    </button>
+                    </Link>
                     <button onClick={() => handleDelete(_id)}>
                         <RiDeleteBin6Line className="text-sm text-gray-400 hover:text-white md:text-base" />
                     </button>
