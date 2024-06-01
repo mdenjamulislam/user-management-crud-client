@@ -10,6 +10,7 @@ import AddUser from "./assets/components/AddUser.jsx";
 import UpdateUser from "./assets/components/UpdateUser.jsx";
 import UserDetails from "./assets/components/UserDetails.jsx";
 import SignUp from "./assets/components/SignUp.jsx";
+import SignIn from "./assets/components/SignIn.jsx";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path: "/signup",
                 element: <SignUp/>,
+            },
+            {
+                path: "/login",
+                element: <SignIn/>
             }
         ],
     },

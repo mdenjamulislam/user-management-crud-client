@@ -17,6 +17,7 @@ const SignUp = () => {
         // check if password and confirm password match
         if (password !== confirm_password) {
             setError("Passwords do not match");
+            return;
         }
 
         signUp(email, password)
