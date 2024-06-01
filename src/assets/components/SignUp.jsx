@@ -23,6 +23,7 @@ const SignUp = () => {
         signUp(email, password)
             .then((result) => {
                 console.log(result.user);
+                window.location.href = "/";
             })
             .catch((error) => {
                 console.log(error);
