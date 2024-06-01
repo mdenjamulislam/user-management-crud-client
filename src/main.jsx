@@ -9,6 +9,7 @@ import Dashboard from "./assets/pages/Dashboard.jsx";
 import AddUser from "./assets/components/AddUser.jsx";
 import UpdateUser from "./assets/components/UpdateUser.jsx";
 import UserDetails from "./assets/components/UserDetails.jsx";
+import SignUp from "./assets/components/SignUp.jsx";
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
                 element: <UpdateUser />,
                 loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`),
             },
+            {
+                path: "/signup",
+                element: <SignUp/>,
+            }
         ],
     },
 ]);
