@@ -9,9 +9,9 @@ const Dashboard = () => {
     const [users, setUsers] = useState(loadedUser);
     
     return (
-        <section>
-            <div className="container">
-                <div className="flex items-center justify-between gap-5">
+        <section className="py-6 md:py-10">
+            <div className="container space-y-4 md:space-y-5">
+                <div className="flex items-center justify-between gap-5 pb-3 border-b border-gray-600">
                     {/* Filter */}
                     <div className="flex items-center gap-3">
                         <button className="flex items-center gap-1 rounded border border-gray-400 px-2 py-1 text-xs hover:bg-blue-500 hover:text-white md:text-sm">
