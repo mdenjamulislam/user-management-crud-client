@@ -45,7 +45,7 @@ const UserCard = ({ user, users, setUsers }) => {
     return (
         <div className="space-y-3.5 rounded-xl border p-4 md:p-5">
             <div>
-                <img src={photoUrl} alt={name} className="h-auto w-full rounded-lg object-cover" />
+                <img src={photoUrl} alt={name} className="h-60 md:h-64 w-full rounded-lg object-cover" />
             </div>
             <h4>{name}</h4>
             <div>
