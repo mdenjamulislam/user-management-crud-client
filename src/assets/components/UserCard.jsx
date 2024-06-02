@@ -19,8 +19,7 @@ const UserCard = ({ user, users, setUsers }) => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                
-                fetch(`http://localhost:5000/users/${id}`, {
+                fetch(`https://user-management-crud-server.vercel.app/users/${id}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
@@ -45,7 +44,7 @@ const UserCard = ({ user, users, setUsers }) => {
     return (
         <div className="space-y-3.5 rounded-xl border p-4 md:p-5">
             <div>
-                <img src={photoUrl} alt={name} className="h-60 md:h-64 w-full rounded-lg object-cover" />
+                <img src={photoUrl} alt={name} className="h-60 w-full rounded-lg object-cover md:h-64" />
             </div>
             <h4>{name}</h4>
             <div>
@@ -60,9 +59,7 @@ const UserCard = ({ user, users, setUsers }) => {
                 <p>{address}</p>
             </div>
             <div className="flex items-center justify-between">
-                <div className="flex items-center -space-x-3">
-                    
-                </div>
+                <div className="flex items-center -space-x-3"></div>
                 {/* End of the user gallery */}
                 {/* Action */}
                 <div className="flex items-center gap-2">

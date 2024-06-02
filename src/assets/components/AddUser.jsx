@@ -1,7 +1,6 @@
 import React from "react";
 
 const AddUser = () => {
-
     const handleNewUser = (e) => {
         e.preventDefault();
 
@@ -14,12 +13,12 @@ const AddUser = () => {
 
         const user = { name, phoneNumber, email, address, photoUrl };
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://user-management-crud-server.vercel.app/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(user),
         })
             .then((res) => res.json())
             .then((data) => {
@@ -28,7 +27,7 @@ const AddUser = () => {
     };
     return (
         <div className="container py-10 md:py-20">
-            <div className="w-full md:max-w-3xl mx-auto">
+            <div className="mx-auto w-full md:max-w-3xl">
                 <h3 className="mb-5 text-center text-lg font-bold md:mb-8 md:text-xl">Creae a new user</h3>
 
                 <form onSubmit={handleNewUser} className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
@@ -71,7 +70,7 @@ const AddUser = () => {
                         </label>
                         <textarea type="text" name="address" placeholder="Address" className="textarea textarea-bordered h-20 w-full"></textarea>
                     </div>
-                    <div className="col-span-full form-control w-full">
+                    <div className="form-control col-span-full w-full">
                         <label className="label">
                             <span className="label-text">Profile Photo</span>
                         </label>

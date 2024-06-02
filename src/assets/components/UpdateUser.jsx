@@ -16,9 +16,7 @@ const UpdateUser = () => {
 
         const user = { name, phoneNumber, email, address, photoUrl };
 
-        
-
-        fetch(`http://localhost:5000/users/${_id}`, {
+        fetch(`https://user-management-crud-server.vercel.app/users/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

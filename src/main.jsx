@@ -20,12 +20,12 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Dashboard />,
-                loader: () => fetch("http://localhost:5000/users"),
+                loader: () => fetch("https://user-management-crud-server.vercel.app/users"),
             },
             {
                 path: "/users/:id",
                 element: <UserDetails />,
-                loader: ({params }) => fetch(`http://localhost:5000/users/${params.id}`),
+                loader: ({ params }) => fetch(`https://user-management-crud-server.vercel.app/users/${params.id}`),
             },
             {
                 path: "/adduser",
@@ -34,16 +34,16 @@ const router = createBrowserRouter([
             {
                 path: "/updateuser/:id",
                 element: <UpdateUser />,
-                loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`),
+                loader: ({ params }) => fetch(`https://user-management-crud-server.vercel.app/users/${params.id}`),
             },
             {
                 path: "/signup",
-                element: <SignUp/>,
+                element: <SignUp />,
             },
             {
                 path: "/login",
-                element: <SignIn/>
-            }
+                element: <SignIn />,
+            },
         ],
     },
 ]);
